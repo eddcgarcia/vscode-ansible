@@ -28,6 +28,7 @@ docker build --tag $docker_image_name -f ../docker/Dockerfile_snippets_latest ..
 
 docker run --rm --name $docker_container_name -i -v $parent_dir:/ansible -w /ansible/scripts $docker_image_name /bin/bash -s <<EOF
     python parse_ansible.py || exit 11
+    npm --prefix ../ install
     ts-node generate_codesnippets.ts || exit 12
 
     version=\$(ansible --version 2>/dev/null)

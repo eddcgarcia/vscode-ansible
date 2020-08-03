@@ -25,7 +25,7 @@ except ImportError:
 
 __path__ = os.path.dirname(__file__)
 display = Display()
-doc_cli = DocCLI([])
+doc_cli = DocCLI(['-v']) # init requires list to be non-empty
 
 def get_module_list():
     module_list = set()
